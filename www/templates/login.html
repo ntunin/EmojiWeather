@@ -1,0 +1,21 @@
+<ion-view title="Login" id="page2">
+    <div background></div>
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Name" ng-model = "user.name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="State" ng-model = "user.location.state">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Country" ng-model = "user.location.country">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="City" ng-model = "user.location.city">
+            </label>
+            <div class="spacer" style="height: 40px;"></div>
+            <a ui-sref="preview" id="login-button1" class="button button-positive  button-block" ng-click = "submit()">Preview</a>
+        </form>
+    </ion-content>
+</ion-view>

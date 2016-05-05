@@ -1,0 +1,17 @@
+<ion-view title="Weekly forecast">
+    <div background></div>
+    <ion-content scroll = "false" padding="true" class="has-header">
+        <ion-list>
+            <ion-item ng-repeat = "(day, hourlyForecast) in forecast" class = "blank">
+                <div class = "day-hourly-forecast">{{day}}</div>
+                <ion-scroll direction="x" class = "linear-hourly">
+                    <ul class = "linear-hourly-forecast">
+                        <li ng-repeat = "weather in hourlyForecast" class = 'linear-horly-item'>
+                            <img class = "hourly-condition" src = "{{weather.icon}}"></img>
+                        </li>
+                    </ul>
+                </ion-scroll>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

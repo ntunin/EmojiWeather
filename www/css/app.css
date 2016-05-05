@@ -1,0 +1,166 @@
+
+.menu-bar {
+	position: absolute;
+	bottom: 40px;
+	width: 100%;
+}
+.menu-button {
+	display: block;
+	margin: 0 auto;
+}
+.scroll {
+	height: 100%;
+}
+.day-hourly-forecast {
+	display: inline-block;
+	width: 20%;
+}
+.background {
+	z-index: -10;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+}
+.background-item {
+	width: 150px;
+	height: 150px;
+	background-size: 100% 100%;
+	margin: 10px;
+	display: inline-block;
+}
+.background-selected {
+	border: 4px solid blue;
+}
+
+.blank {
+	background-color: white;
+	padding: 10px;	
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 5px;
+	margin-top: 10px;
+}
+.header-bar {
+	position: relative;
+    overflow:hidden; /* establish a new formatting context */
+    min-height: 20px;
+}
+.hello-user {
+	float: left;
+	display: inline-block;
+}
+.country-label {
+	float: right;
+	display: inline-block;
+}
+.welcome {
+	display: inline-block;
+	text-align: center;
+}
+.main-page {
+	text-align: center;
+}
+.main-page .weather-state-block {
+	position:absolute;
+	left:0;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+.main-page .weather-state {
+	display: inline-block;
+	opacity: 1;
+}
+.weather {
+	position: relative;
+	height: 100px;
+}
+.date-info {
+	display: inline-block;
+	margin-top: 20px;
+	border: 1px solid black;
+	width: 50%;
+	height: 100%;
+	background: white;
+	position: relative;
+}
+.date-info .date {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+.date-info .city {
+	position: absolute;
+	left: 10px;
+	top: 40px;
+}
+
+
+.date-info .day-of-week {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.date-info .state {
+	position: absolute;
+	right: 10px;
+	top: 40px;
+}
+.date-info .time {
+	position:absolute;
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
+	bottom: 0px;
+}
+
+.linear-hourly.scroll-view.scroll-x.fixed {
+	position: absolute;
+	bottom: 0px;
+	top: auto;
+	width: 98%;
+}
+.linear-hourly.scroll-view.scroll-x {
+	overflow: hidden;
+	padding: 2px;
+}
+.linear-hourly-forecast {
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-top: 3px;
+	padding-bottom: 1px;
+	white-space: nowrap;
+	height: 30px;
+}
+.linear-horly-item {
+	display: inline;
+	padding: 0;
+}
+.features {
+	padding: 10px;
+}
+input {
+	opacity: 1;
+}
+.button {
+	opacity: 1;
+}
+.current-condition {
+	width: 50px;
+	height: 50px;
+}
+.hourly-condition {
+	width: 30px;
+	height: 30px;
+
+}
+.pure {
+	background: rgba(255, 255, 255, 1);
+}
+.hourly-condition.vertical-list {
+	float: right;
+}
+.list {
+	margin-top: 10px;
+}

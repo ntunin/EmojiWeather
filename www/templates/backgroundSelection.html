@@ -1,0 +1,9 @@
+<ion-view title="Background selection" id="page12">
+    <ion-content padding="true" class="has-header">
+        <button id="backgroundSelection-button20" class="button button-positive  button-block">Upload your background</button>
+        <ul class = "background-list">
+        	<li ng-repeat = "item in backgrounds" class = "background-item" style = "background-image: url({{item}})" ng-click = "select(item)" ng-class = "isSelected(item)">
+        	</li>
+        </ul>
+    </ion-content>
+</ion-view>

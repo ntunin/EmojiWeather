@@ -1,0 +1,40 @@
+<ion-view title="Hello">
+    <div background></div>
+    <ion-content padding="true" class="has-header main-page">
+        <div class= "header-bar">
+            <div class = "blank hello-user" ng-if = "username">
+                <p>Hello {{username}}</p>
+            </div> 
+            <div class= "country-label blank"  ng-if = "location.country">
+                <p>{{location.country}}</p>
+            </div>
+        </div>
+        <div class = "welcome blank">Welcome</div>
+        <div class = "weather">
+            <div class = "weather-state-block" ng-if = "hourlyForecast">
+                <div class = "weather-state">
+                    <img class = "current-condition" src = "{{hourlyForecast[0].icon}}"></img>
+                </div>
+            </div>
+            <div class = "date-info">
+                <div class = "day-of-week">{{moment(date).format("dddd")}}</div>
+                <div class = "city"  ng-if = "location.city">{{location.city}}</div>
+                <div class = "date">{{moment(date).format("D-MM-YY")}}</div>
+                <div class = "state"  ng-if = "location.state">{{location.state}}</div>
+                <div class = "time">{{moment(date).format("hh:mm:ss a")}}</div>
+            </div>
+        </div>
+        
+        <div class = "menu-bar">
+          	<button class="button button-positive  button-outline menu-button" ui-sref = "menu">Menu</button>
+        </div>
+        <ion-scroll direction="x" class = "linear-hourly fixed"  ng-if = "hourlyForecast">
+    	    <ul class = "linear-hourly-forecast">
+    	      	<li ng-repeat = "hour in hourlyForecast" class = 'linear-horly-item'>
+                    <img class = "hourly-condition" src = "{{hour.icon}}"></img>
+                </li>
+    	    </ul>
+        </ion-scroll>
+        
+    </ion-content>
+</ion-view>
