@@ -2,6 +2,9 @@ angular.module('app')
 
 .service('UserData', function() {
 	var user;
+	for(var field in localStorage) {
+		localStorage.removeItem(field);
+	}
 	return function(data) {
 		if(data) {
 			setData(data);
@@ -14,7 +17,6 @@ angular.module('app')
 	function getData() {
 		if(!user) {
 			var userInfo = localStorage.ew_user;
-			console.log(userInfo);
 			if(userInfo) {
 				user = JSON.parse(userInfo);
 			} 
