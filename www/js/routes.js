@@ -7,58 +7,99 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
 
-      .state('overview', {
-    url: '/overview',
-    templateUrl: 'templates/overview.html',
-    controller: 'overviewCtrl'
+
+.state('getStarted', {
+      url: '/getStarted',
+      controller: 'GetStartedCtrl'
+    })
+.state('welcome', {
+      url: '/welcome',
+      templateUrl: 'templates/getStarted.html',
+      controller: 'WelcomePageCtrl'
+    })
+  .state('signIn', {
+      url: '/signIn',
+      templateUrl: 'templates/signIn.html',
+      controller: 'SignInCtrl'
   })
 
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
+  .state('signUp', {
+      url: '/signUp',
+      templateUrl: 'templates/signUp.html',
+      controller: 'SingUpCtrl'
+  })
+  .state('app', {
+      url: '/app',
+      templateUrl: 'templates/sideMenu.html',
+      controller: 'AppNavigationCtrl'
   })
 
-  .state('preview', {
-    url: '/preview',
-    templateUrl: 'templates/preview.html',
-    controller: 'previewCtrl'
+  .state('app.forecast', {
+      url: '/forecast',
+      abstract: true,
+      templateUrl: 'templates/forecast.html',
+      controller: 'AppNavigationCtrl'
+  })
+  .state('app.forecast.current', {
+      url: '/forecast/current',
+      views: {
+        'current': {
+          templateUrl: 'templates/main.html',
+          controller: 'mainCtrl'
+        }
+      }
   })
 
-  .state('error', {
-    url: '/login_error',
-    templateUrl: 'templates/error.html',
-    controller: 'errorCtrl'
+    .state('app.forecast.weekly', {
+      url: '/weekly',
+      views: {
+        'weekly': {
+          templateUrl: 'templates/weeklyForecast.html',
+          controller: 'WeeklyForecastCtrl'
+        }
+      }
+    })
+
+    .state('app.forecast.hourly', {
+      url: '/hourly',
+      views: {
+        'hourly': {
+          templateUrl: 'templates/hourlyForecast.html',
+          controller: 'HourlyForecastCtrl'
+        }
+      }
+    })
+
+  .state('app.settings', {
+      url: '/settings',
+      templateUrl: 'templates/settings.html',
+      controller: 'AppNavigationCtrl'
+  })
+  .state('app.profile', {
+      url: '/profile',
+      templateUrl: 'templates/profile.html',
+      controller: 'ProfileCtrl'
+  })
+  .state('app.changeLocation', {
+      url: '/location',
+      templateUrl: 'templates/changeLocation.html',
+      controller: 'EnterLocationCtrl'
   })
 
-  .state('main', {
-    url: '/main_screen',
-    templateUrl: 'templates/main.html',
-    controller: 'mainCtrl'
+  .state('app.changeBackround', {
+      url: '/background',
+      templateUrl: 'templates/backgroundSelection.html',
+      controller: 'backgroundSelectionCtrl'
   })
 
-  .state('menu', {
-    url: '/menu',
-    templateUrl: 'templates/menu.html',
-    controller: 'menuCtrl'
+  .state('app.changeStickers', {
+      url: '/stickers',
+      templateUrl: 'templates/stickers.html',
+      controller: 'StickersSelectionCtrl'
   })
 
-  .state('weeklyForecast', {
-    url: '/weekly',
-    templateUrl: 'templates/weeklyForecast.html',
-    controller: 'weeklyForecastCtrl'
-  })
-
-  .state('hourlyForecast', {
-    url: '/hourly',
-    templateUrl: 'templates/hourlyForecast.html',
-    controller: 'hourlyForecastCtrl'
-  })
-
-  .state('map', {
+  .state('app.map', {
     url: '/map',
     templateUrl: 'templates/map.html',
     controller: 'mapCtrl'
@@ -70,11 +111,6 @@ angular.module('app.routes', [])
     controller: 'addEmojisCtrl'
   })
 
-  .state('search', {
-    url: '/search',
-    templateUrl: 'templates/search.html',
-    controller: 'searchCtrl'
-  })
 
   .state('backgroundSelection', {
     url: '/page12',
@@ -82,8 +118,47 @@ angular.module('app.routes', [])
     controller: 'backgroundSelectionCtrl'
   })
 
-$urlRouterProvider.otherwise('/overview')
+  .state('app.store', {
+      url: '/store',
+      abstract: true,
+      templateUrl: 'templates/store.html',
+      controller: 'AppNavigationCtrl'
+  })
+  .state('app.store.stickers', {
+      url: '/stickers',
+      views: {
+        'stickers': {
+          templateUrl: 'templates/stickersStore.html',
+          controller: 'StickersStoreCtrl'
+        }
+      }
+  })
 
-  
+    .state('app.store.backgrounds', {
+      url: '/background',
+      views: {
+        'backgrounds': {
+          templateUrl: 'templates/backgroundStore.html',
+          controller: 'backgroundStoreCtrl'
+        }
+      }
+    })
+
+    .state('app.store.ads', {
+      url: '/ads',
+      views: {
+        'ads': {
+          templateUrl: 'templates/ads.html',
+          controller: 'purchaseAdsCtrl'
+        }
+      }
+    })
+    .state('app.about', {
+        url: '/about',
+        templateUrl: 'templates/about.html'
+    })
+$urlRouterProvider.otherwise('/getStarted')
+
+
 
 });

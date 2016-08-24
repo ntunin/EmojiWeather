@@ -1,4 +1,395 @@
+@font-face {
+    font-family: raleway;
+    src: url(raleway/Raleway-Light.ttf);
+		font-weight:normal;
+}
+@font-face {
+    font-family: lato;
+    src: url(Lato/Lato-Light.ttf);
+		font-weight:normal;
+}
+body {
+	font-family: raleway;
+}
+ion-content {
+  padding: 10px;
+}
+.has-tabs, .bar-footer.has-tabs {
+  bottom: 70px;
+}
+.weather-list {
+  margin-bottom: 60px;
+}
+.item {
+  background: none;
+  border-color: white;
+}
+.bar .back-button.hide {
+	display: block;
+}
+.get-started, .pane.get-started {
+  text-align: center;
+  background-image: url(../img/background.png);
+  padding-top: 44px;
+  background-size: 100% 100%;
+}
+.logo {
+	width: 40%;
+}
+.app-logo {
+	width: 55%;
+}
+.app-title {
+	font-family: raleway;
+  font-size: 2.4em;
+  color: white;
+  text-transform: uppercase;
+}
+.facebook {
+  background-image: url(../img/facebook.png);
+}
+.get-started h6 {
+  color: white;
+  margin: 20px;
+}
+.social {
+  padding: 0;
+  min-height: 20px;
+  min-width: 20px;
+  width: 1.5em;
+  height: 1.5em;
+  border: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: none;
+}
+.social img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.button.button-stable.activated {
+  background: none;
+}
+.activated .active-button-marker {
+  display: none;
+}
+.active-button-marker {
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-animation: BUTTON-CLICK 1s infinite;
+  -moz-animation:    BUTTON-CLICK 1s infinite;
+  -o-animation:      BUTTON-CLICK 1s infinite;
+  animation:         BUTTON-CLICK 1s infinite;
+}
+@-webkit-keyframes BUTTON-CLICK {
+  0%   { -webkit-transform: scale(0); }
+  100% { -webkit-transform: scale(100); }
+}
+.bar.bar-positive {
+  font-family: lato;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+  background-image: none;
+}
+.bar-positive .button.button-clear.nav-bar-item, .button-clear.button-clear {
+	color: white;
+  font-size: 1em;
+}
+.bar {
+  background: none;
+  border: none;
+}
+.title {
+	font-size: 25px;
+	color: white;
+	margin: 10px;
+}
+.avatar {
+  border: none;
+  text-align: center;
+}
+.profile-image {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+}
+.user-item {
+  vertical-align: middle;
+  color: white;
+  font-size: 20px;
+	min-height: 40px;
+	margin: 10px;
+	padding: 5px;
+  display: flex;
+}
+.user-item input {
+	height: 100%;
+  line-height: 1em;
+	width: 100%;
+  background: none;
+  color: white;
+  vertical-align: middle;
+  display: inline;
+}
+.current-state {
+	margin-top: 20px;
+	width: 37%;
+}
+.current-temperature {
+	font-size: 3em;
+	color: white;
+	margin: 10px;
+  line-height: 1em;
+}
+.current-condition-text {
+	color: white;
+	font-size: 1em;
+}
+.current-weather-info-item {
+	color: white;
+	font-size: 1.2em;
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+	border: none;
+	overflow: visible;
+}
+.current-weather-info-name {
+  font-size: 1em;
+  font-family: lato;
+	position: absolute;
+	left: 0;
+}
+.current-weather-info-description {
+  font-size: 1.2em;
+	position: absolute;
+	right: 0;
+	text-align: right;
+  line-height: 1.5em;
+}
+.ion-tabs {
+  border: none;
+}
+.tabs-positive > .tabs, .tabs-striped.tabs-positive .tabs {
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
+  background-image: none;
+	color: white;
+	height: 70px;
+  padding: 10px;
+}
+.tab-item {
+	min-height: 30px;
+	height: 40px;
+	padding: 10px;
+	color: white;
+	border: solid 1px white;
+}
+.tabs-striped .tab-item.activated, .tabs-striped.tabs-positive .tab-item.activated {
+  margin-top: 0px;
+  border-width: 1px;
+}
+.tabs-striped.tabs-positive .tab-item, .tabs-striped.tabs-positive .tab-item.tab-item-active,  .tabs-striped.tabs-positive .activated{
+  border: solid 1px white;
+}
+.tabs-icon-top > .tabs .tab-item, .tabs-icon-top.tabs .tab-item, .tabs-icon-bottom > .tabs .tab-item, .tabs-icon-bottom.tabs .tab-item {
+  font-size: 1em;
+}
+.tab-item-active, .tabs-striped.tabs-positive .tab-item.tab-item-active {
+  margin: 0;
+	color: white;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.tab-title {
+	font-size: 1.2em;
+  font-family: lato;
+}
+.tabs-striped.tabs-positive .tab-item.left-tab, .left-tab {
+  border-right: none;
+}
+.tabs-striped.tabs-positive .tab-item.right-tab, .right-tab {
+  border-left: none;
+}
+.hourly-forecast {
+	color: white;
+}
+.at-hour-forecast, .day-forecast {
+	color: white;
+	border: none;
+	border-bottom: 1px solid white;
+	position: relative;
+	margin-top: 10px;
+}
+.at-hour-forecast {
+	height: 4em;
+  padding: 0px;
+}
+.day-forecast {
+	height: 60px;
+  padding: 0;
+  padding-bottom: 5px;
+  height: 70px;
+}
+.at-hour {
+	position: absolute;
+	right: 40px;
+	top: 0px;
+	font-size: 1em;
+}
+.at-hour-temperature {
+	position: absolute;
+	right: 40px;
+	bottom: 15px;
+	font-size: 2em;
+}
+.at-day {
+	position: absolute;
+	top: 0;
+	left: 10px;
+}
+.weekly-day {
+	position: absolute;
+	top: 0;
+	left: 10px;
+}
+.weekly-date {
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+}
+.weekly-condition {
+	position: absolute;
+	right: 100px;
+	bottom: 5px;
+  height: 60px;
+}
+.at-day-temperature {
+	font-size: 1.7em;
+	position: absolute;
+	right: 10px;
+}
+.at-day-temperature.high {
+  top: 2px;
+}
+.at-day-temperature.low {
+  bottom: 10px;
+}
 
+.settings .list {
+	margin-top: 50%;
+	text-align: center;
+}
+.submit-location {
+
+}
+.settings .item {
+	color: white;
+	margin: 20px;
+	height: 40px;
+	border: none;
+  padding: 2px;
+}
+
+
+.allow-geolocation {
+	color: white;
+	margin-top: 80px;
+	border: none;
+	font-size: 15px;
+}
+.toggle-small .toggle-calm input:checked + .track .handle {
+	background-color: white;
+}
+.toggle.toggle-calm input:checked + .track,  {
+    border-color: white;
+    background-color: white;
+}
+
+.enter-location {
+		color: white;
+		margin-top: 20px;
+		margin-left: 10px;
+}
+.stickers-item, .background-item {
+	margin: 10px;
+	width: 25%;
+	display: inline-block;
+	position: relative;
+	color: white;
+	text-align: center;
+}
+.stickers-pack-image {
+	width: 50px;
+	height: 50px;
+}
+.sticker-name {
+	font-size: 15px;
+}
+.sticker-price {
+	font-size: 20px;
+}
+.ion-place-tools-autocomplete input {
+
+}
+.ion-place-tools-autocomplete-dropdown {
+	position: relative;
+}
+.autocomlete-item, .user-location-item {
+	position: relative;
+}
+.autocomlete-item .button, .user-location-item .button {
+	position: absolute;
+  right: 0px;
+  top: -15px;
+  height: 100%;
+  min-width: 20px;
+  width: 20px;
+  padding: 20px;
+  margin: 0;
+}
+.user-location-item {
+		width: 80%;
+    margin: 0 auto;
+    border: 0;
+    border-bottom: 1px solid white;
+    padding: 0;
+    margin-bottom: 10px;
+    border-color: white;
+    color: white;
+}
+.plus-icon, .minus-icon {
+	width: 10px;
+	height: 10px;
+	background-size: 100% 100%;
+}
+.plus-icon {
+	background-image: url(../img/plus.png);
+}
+.minus-icon {
+	background-image: url(../img/minus.png);
+}
+.button.button-stable {
+  position: relative;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-radius: 0px;
+  min-height: 20px;
+  height: 30px;
+  line-height: 30px;
+	width: 60%;
+  border: 1px solid white;
+  background: none;
+  color: white;
+
+  overflow: hidden;
+}
 .menu-bar {
 	position: absolute;
 	bottom: 40px;
@@ -10,10 +401,14 @@
 }
 .scroll {
 	height: 100%;
+	margin-bottom: 70px;
 }
 .day-hourly-forecast {
 	display: inline-block;
 	width: 20%;
+}
+.background-list {
+	 margin-right: 20px;
 }
 .background {
 	z-index: -10;
@@ -21,24 +416,54 @@
 	width: 100%;
 	height: 100%;
 	background-size: 100% 100%;
+	background-position: center;
+  background-image: url(../img/background.png);
+}
+.menu-content.pane {
+  background-image: url(../img/background.png);
 }
 .background-item {
-	width: 150px;
-	height: 150px;
-	background-size: 100% 100%;
 	margin: 10px;
+	width: 80px;
+  height: 80px;
+}
+.background-item img {
+	width: 70px;
+	height: 70px;
+}
+.item-selection {
+	display: none;
+}
+.item-selected+.item-selection, .item-selected>.item-selection {
 	display: inline-block;
+	color: white;
 }
-.background-selected {
-	border: 4px solid blue;
+.item-selected+.item-selection {
+	position: absolute;
+	bottom: 10px;
+	right: -5px;
 }
-
+.stickers-item .item-selected+.item-selection {
+	position: absolute;
+	bottom: 0px;
+	right: 15px;
+}
+.city-weather {
+	display: inline-block;
+	color: #0C2958;
+	font-size: 10px;
+	z-index: 1000;
+}
 .blank {
 	background-color: white;
-	padding: 10px;	
+	padding: 10px;
 	background: rgba(255, 255, 255, 0.7);
 	border-radius: 5px;
 	margin-top: 10px;
+	background-size: auto 100%;
+}
+.overview .blank {
+		color: #0C2958;
 }
 .header-bar {
 	position: relative;
@@ -79,7 +504,7 @@
 	display: inline-block;
 	margin-top: 20px;
 	border: 1px solid black;
-	width: 50%;
+	width: 75%;
 	height: 100%;
 	background: white;
 	position: relative;
@@ -151,8 +576,8 @@ input {
 	height: 50px;
 }
 .hourly-condition {
-	width: 30px;
-	height: 30px;
+	width: 60px;
+	height: 60px;
 
 }
 .pure {
@@ -163,4 +588,133 @@ input {
 }
 .list {
 	margin-top: 10px;
+}
+.user-preview {
+	width: auto;
+	display: inline-block;
+	margin: auto;
+}
+.ads {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+	margin-bottom: 10px;
+}
+.has-ads ion-content{
+  margin-top: 70px;
+}
+.onboarding {
+	position: fixed;
+	min-height: 20px;
+	min-width: 60%;
+	z-index: 1000;
+	opacity: 0;
+	padding: 20px;
+}
+.onboarding-content {
+	background-color: #95BBC3;
+	border-radius: 5px;
+	padding: 10px;
+}
+H4 {
+		color: white;
+		margin: 10px;
+		border-bottom: 1px solid white;
+}
+.onboarding-pointer {
+	position: relative;
+	background-image: url(../img/green-arrow.png);
+	background-size: 100% 100%;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}
+#map-canvas {
+    width: 100%;
+    height: 80%;
+}
+.gm-style-iw {
+    text-align: center;
+}
+.pane, .view,
+[nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"] {
+
+    background: none;
+    box-shadow: none;
+}
+.has-header {
+  margin-top: 44px;
+}
+input::-webkit-input-placeholder {
+   color: #eaeaea;
+}
+.side-menu .item {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 15px;
+}
+.side-menu .item-complex .item-content {
+  background: none;
+}
+.side-menu {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding-top: -10px;
+}
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline
+}
+.user-name {
+  margin-left: 10px;
+  margin-top: 20px;
+  display: inline;
+}
+.has-not-header {
+  margin-top: 0px;
+}
+.user-navigation {
+  display: block !important;
+}
+.item-image-container {
+  position: relative;
+}
+.menu-left {
+  background: none;
+}
+
+.about, .pane.about {
+  text-align: center;
+  color: white;
+}
+.about .logo {
+  width: 30%;
+}
+.about .app-logo {
+  width: 20%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.about .app-title {
+  font-size: 22px;
+}
+.about-info {
+  margin-top: 30px;
+  font-size: 1.2em;
+}
+.about-info br {
+   line-height: 250%;
+}
+.ads-purchase-content {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 150%;
+  margin-top: 40%;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  padding: 5px;
 }

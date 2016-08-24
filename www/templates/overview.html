@@ -1,19 +1,20 @@
 <ion-view title="Overview" id="page1">
-    <div background></div>
-    <ion-content padding="true" class="has-header" ui-sref = "login">
-	    <div class = "app-summary blank">Summary</div>
-	    <div class = "app-features blank">
-	    	Features
-	    	<ul class = "features">
-	    		<li>Animated Weather gadget changes with weather conditions</li>
-	    		<li>Up to date weather forecast</li>
-	    		<li>Date/Time</li>
-	    		<li>Hourly/Weekly forecast</li>
-	    		<li>Weather tracking</li>
-	    		<li>Atmospheric pressure</li>
-	    		<li>Add your location</li>
-	    		<li>Search weather if different locations</li> 
-	    	</ul>
-	    </div>
+    <ion-content padding="true" class="has-header overview" ui-sref = "login">
+      <select ng-model = "selectedLanguage" ng-change = "changeLanguage(selectedLanguage)">
+        <option ng-repeat="(language, values) in strings()"  ng-selected="selectedLanguage == language" value="{{language}}">{{language}}</option>
+      </select>
+      <div  ng-if = "!user">
+        <img class = "app-logo" src = "img/ew.jpg"></img>
+        <img class = "logo" src="img/cnote.png"></img>
+  	    <div class = "blank">{{strings("owerview")}}</div>
+  	    <div class = "app-summary blank">{{strings("summary")}}</div>
+  	    <div class = "app-features blank">
+  	    	{{strings("features-title")}}
+  	    	<ul class = "features">
+  	    		<li ng-repeat = "feature in strings('features')">{{feature}}</li>
+  	    	</ul>
+  	    </div>
+    </div>
+    <div onboarding = ".overview"></div>
 	</ion-content>
 </ion-view>

@@ -1,33 +1,39 @@
 angular.module('app')
 
-.controller('weeklyForecastCtrl', function($scope, $state, Background, Weather, UserData) {
-	Background.setup($scope, $state);
-	var user = UserData();
-	Weather(user.location, 'hourly10day').then(success, error);
-	$scope.moment = moment;
+.controller('WeeklyForecastCtrl', function($scope, $rootScope, $state, $ionicLoading, $ionicPopup, LocationService, Weather, Emojy) {
 
-	function success(response) {
-		$scope.forecast = sortByDays(response);
-
-		function sortByDays(list) {
-			var days = {};
-			var currentKey;
-			for(var i = 0; i < list.length; i++) {
-				var item = list[i];
-				var key = getKeyFor(item);
-				days[key] = days[key] || [];
-
-				days[key].push(item);
-			}
-			return days;
-
-			function getKeyFor( item ) {
-				return moment(item.date).format("ddd");				
-			}
+	$ionicLoading.show();
+	Emojy.subscribe(load);
+	LocationService("subscribe", load);
+	LocationService("define location").then(successLocationRequest, errorLocationRequest);
+	$scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+		if(toState.name == "app.forecast.weekly") {
+			$ionicLoading.show();
+			load();
+			setTimeout(load, 60*60*1000);
 		}
-	} 
-	function error(e) {
+	});
 
+	function load() {
+			successLocationRequest(LocationService("current location"));
+	}
+	function successLocationRequest(location) {
+		Weather(location, "forecast10day").then(successWeatherRequest, errorWeatherRequest);
+	}
+	function errorLocationRequest(error) {
+		$ionicLoading.hide();
+		throw error;
+	}
+
+	function successWeatherRequest(weather) {
+		$ionicLoading.hide();
+		$scope.forecast = weather;
+		$scope.moment = moment;
+	}
+
+	function errorWeatherRequest(error) {
+		$ionicPopup.alert({title: "Error", template: "Cannot get weather. " + error});
+		$ionicLoading.hide();
 	}
 
 })

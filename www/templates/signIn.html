@@ -1,0 +1,17 @@
+<ion-nav-bar  class = "user-navigation">
+  <ion-nav-back-button class="button-clear user-back-button ">
+    <i class="ion-arrow-left ion-ios-arrow-left"></i> Back
+  </ion-nav-back-button>
+</ion-nav-bar>
+<ion-view class = "get-started">
+    <ion-content padding="true"  class="has-header" scroll = false>
+      <ion-list>
+        <ion-item class = "user-item">
+          <input type = "text" placeholder="Username" ng-model = "userData.email"></input>
+        </ion-item>
+        <ion-item class = "user-item">
+          <input type="password" placeholder="Password" ng-model = "userData.password"></input>
+        </ion-item class = "user-item">
+      </ion-list>
+    <button class = "button button-stable" animated-click = "signIn()">Sign In</button>
+</ion-view>

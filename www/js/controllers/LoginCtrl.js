@@ -1,19 +1,29 @@
 angular.module('app')
-  
-  
-.controller('loginCtrl', function($scope, $state, Background, UserData, Location) {
+
+
+.controller('loginCtrl', function($scope, $state, Background, UserDataVerify, strings, $ionicPopup, UserData) {
+	$scope.strings = strings;
 	Background.setup($scope, $state);
 	$scope.user = {
-		name: "nik",
+		name: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
 
 		location: {
-			state: "siberia",
-			country: "russia",
-			city: "omsk"
+			state: "",
+			country: "",
+			city: ""
 		}
 	}
 	$scope.submit = function() {
-		UserData($scope.user);
-		Location($scope.user.location);
+    UserDataVerify($scope.user).then(success, error);
+		function success() {
+			UserData($scope.user);
+			$state.go("preview");
+		}
+		function error(e) {
+			$ionicPopup.alert({title: "Warning", template: e})
+		}
 	}
 })

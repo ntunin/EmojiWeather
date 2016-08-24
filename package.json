@@ -15,6 +15,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
@@ -24,7 +25,14 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    {
+      "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
+      "id": "plugin.google.maps"
+    },
+    "cordova-plugin-inappbrowser"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

@@ -1,15 +1,28 @@
 angular.module('app')
 
-   
-.controller('backgroundSelectionCtrl', function($scope, $state, Background) {
-	var backgroundSettings = Background.setup($scope, $state);
-	$scope.backgrounds = Background.list();
+
+.controller('backgroundSelectionCtrl', function($scope, $state, Backgrounds, strings, User) {
+  $scope.strings = strings;
+  var background = {id: -1};
+  update();
+  User.me("subscribe", update);
+  Backgrounds.subscribe(update);
+  function update() {
+      Backgrounds.current().then(function(pack) {
+        background = pack;
+        $scope.$apply();
+      });
+      Backgrounds.available().then(function(list) {
+        $scope.backgrounds = list;
+        $scope.$apply();
+      });
+  }
 	$scope.select = function(item) {
-		backgroundSettings.set(item);
+		Backgrounds.current(item);
+    background = item;
 	}
 	$scope.isSelected = function( item ) {
-		return Background.isSelected(item)? "background-selected": "";
+		return (item.id == background.id)? "item-selected": "";
 	}
 
 })
- 

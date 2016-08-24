@@ -1,21 +1,32 @@
 <ion-view title="Login" id="page2">
-    <div background></div>
     <ion-content padding="true" class="has-header">
-        <form class="list">
+        <div class = "ads">Ads</div>
+        <form class="list login-data">
             <label class="item item-input">
-                <input type="text" placeholder="Name" ng-model = "user.name">
+                <input type="text" placeholder="{{strings('username')}}" ng-model = "user.username">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="State" ng-model = "user.location.state">
+                <input type="text" placeholder="{{strings('name')}}" ng-model = "user.name">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="Country" ng-model = "user.location.country">
+                <input type="text" placeholder="{{strings('user-state-placeholder')}}" ng-model = "user.location.state">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="City" ng-model = "user.location.city">
+                <input type="text" placeholder="{{strings('user-country-placeholder')}}" ng-model = "user.location.country">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="{{strings('user-city-placeholder')}}" ng-model = "user.location.city">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="{{strings('password')}}" ng-model = "user.password">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="{{strings('confirm-password')}}" ng-model = "user.confirmPassword">
             </label>
             <div class="spacer" style="height: 40px;"></div>
-            <a ui-sref="preview" id="login-button1" class="button button-positive  button-block" ng-click = "submit()">Preview</a>
+            <a id="preview-button" class="button button-positive  button-block" ng-click = "submit()">{{strings('preview')}}</a>
+            <div onboarding = "#preview-button 3"></div>
         </form>
+        <div onboarding = ".login-data"></div>
     </ion-content>
 </ion-view>

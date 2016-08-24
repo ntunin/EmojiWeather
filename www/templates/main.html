@@ -1,40 +1,43 @@
-<ion-view title="Hello">
-    <div background></div>
-    <ion-content padding="true" class="has-header main-page">
-        <div class= "header-bar">
-            <div class = "blank hello-user" ng-if = "username">
-                <p>Hello {{username}}</p>
-            </div> 
-            <div class= "country-label blank"  ng-if = "location.country">
-                <p>{{location.country}}</p>
-            </div>
+<ion-view>
+    <ion-content padding="true" class="main-page has-not-header" scroll = "true">
+      <div ng-if = weather>
+        <img src = "{{weather[0].icon}}" class = "current-state"></img>
+        <div class = "current-condition-text">
+          {{weather[0].condition}}</div>
+        <div class = "current-temperature">
+          {{((weather[0].temp > 0)? "+":"")+weather[0].temp + "&deg;c"}}
         </div>
-        <div class = "welcome blank">Welcome</div>
-        <div class = "weather">
-            <div class = "weather-state-block" ng-if = "hourlyForecast">
-                <div class = "weather-state">
-                    <img class = "current-condition" src = "{{hourlyForecast[0].icon}}"></img>
-                </div>
+        <ion-list>
+        <ion-item class = "current-weather-info-item">
+          <div class = "current-weather-info-name">
+            Feels like
+          </div>
+          <div  class = "current-weather-info-description">
+            {{((weather[0].feelsLike > 0)? "+":"")+weather[0].feelsLike + "&deg;c"}}
+          </div>
+        </ion-item>
+        <ion-item class = "current-weather-info-item">
+          <div class = "current-weather-info-name">
+            Humidity
+          </div>
+          <div  class = "current-weather-info-description">
+            {{weather[0].humidity + "%"}}
+          </div>
+        </ion-item>
+        <ion-item class = "current-weather-info-item">
+          <div class = "current-weather-info-name">
+            Wind
+          </div>
+          <div class = "current-weather-info-description">
+            <div>
+              {{weather[0].wind.speed + " m/s"}}
             </div>
-            <div class = "date-info">
-                <div class = "day-of-week">{{moment(date).format("dddd")}}</div>
-                <div class = "city"  ng-if = "location.city">{{location.city}}</div>
-                <div class = "date">{{moment(date).format("D-MM-YY")}}</div>
-                <div class = "state"  ng-if = "location.state">{{location.state}}</div>
-                <div class = "time">{{moment(date).format("hh:mm:ss a")}}</div>
+            <div>
+              {{weather[0].wind.direction.name + " (" + weather[0].wind.direction.degrees +"&deg;)"}}
             </div>
-        </div>
-        
-        <div class = "menu-bar">
-          	<button class="button button-positive  button-outline menu-button" ui-sref = "menu">Menu</button>
-        </div>
-        <ion-scroll direction="x" class = "linear-hourly fixed"  ng-if = "hourlyForecast">
-    	    <ul class = "linear-hourly-forecast">
-    	      	<li ng-repeat = "hour in hourlyForecast" class = 'linear-horly-item'>
-                    <img class = "hourly-condition" src = "{{hour.icon}}"></img>
-                </li>
-    	    </ul>
-        </ion-scroll>
-        
+          </div>
+        </ion-item>
+      </ion-list>
+      </div>
     </ion-content>
 </ion-view>

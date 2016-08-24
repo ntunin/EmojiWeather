@@ -1,12 +1,17 @@
-<ion-view title="Hourly forecast">
-    <div background></div>
-    <ion-content padding="true" scroll = "true" class="has-header">
-        <ion-list>
-            <ion-item ng-repeat = "weather in hourlyForecast | limitTo: 12" class = "blank">
-            	{{moment(weather.date).format("DD-MM hh:mm")}}
-            	&nbsp;
-                <img class = "hourly-condition vertical-list" src = "{{weather.icon}}"></img>
-        	</ion-item>
-        </ion-list>
+<ion-view>
+    <ion-content padding="true" scroll = "true" class="has-not-header">
+        <div ng-repeat = "(day, forecast) in hourlyForecast" class = "hourly-forecast">
+            <div>{{day}}</div>
+            <ion-list>
+              <ion-item ng-repeat = "hour in forecast" class = "at-hour-forecast">
+                <img class = "hourly-condition" src = "{{hour.icon}}"></img>
+                <span class = "at-hour">{{moment(hour.date).format("hh:mm")}}</span>
+                <span class = "at-hour-temperature">
+                  {{((hour.temp > 0)? "+":"")+hour.temp+ "&deg;c"}}
+                </span>
+              </ion-item>
+            </ion-list>
+        </ion-item>
+      </div>
     </ion-content>
 </ion-view>

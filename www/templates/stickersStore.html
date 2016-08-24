@@ -1,0 +1,17 @@
+<ion-nav-view>
+  <ion-nav-view title="Stickers selection">
+      <ion-content padding="true" class="has-header has-not-header">
+          <div class = "title">Shop</div>
+          <ul class = "stickers-list">
+            <div ng-repeat = "item in stickers" class = "stickers-item" ng-if = "!item.available">
+               <div class = "item-image-container">
+                  <img  class = "stickers-pack-image" src ="{{item.picture}}" ng-click = "select(item)" >
+                  </img>
+                </div>
+                <div class = "sticker-name">{{item.name}}</div>
+                <div class = "sticker-name">{{'$'+item.cost}}</div>
+            </div>
+          </ul>
+      </ion-content>
+  </ion-nav-view>
+</ion-nav-view>

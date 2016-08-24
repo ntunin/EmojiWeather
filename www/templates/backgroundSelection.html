@@ -1,9 +1,15 @@
-<ion-view title="Background selection" id="page12">
-    <ion-content padding="true" class="has-header">
-        <button id="backgroundSelection-button20" class="button button-positive  button-block">Upload your background</button>
+<ion-nav-view title="Background selection" class="has-header">
+  <div class = "title your-backrounds">Your backrounds</div>
+    <ion-content padding="true">
         <ul class = "background-list">
-        	<li ng-repeat = "item in backgrounds" class = "background-item" style = "background-image: url({{item}})" ng-click = "select(item)" ng-class = "isSelected(item)">
-        	</li>
+          <div ng-repeat = "item in backgrounds" class = "background-item">
+             <div class = "item-image-container">
+        	      <img class = "background-item" ng-src ="{{item.picture}}" ng-click = "select(item)" ng-class = "isSelected(item)">
+                </img>
+                <icon class = "icon ion-checkmark-circled item-selection"></icon>
+              </div>
+            <div class = "sticker-name">{{item.name}}</div>
+          </div>
         </ul>
     </ion-content>
-</ion-view>
+</ion-nav-view>

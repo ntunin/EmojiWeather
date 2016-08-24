@@ -5,9 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.routes', 'app.directives'])
 
-.run(function($ionicPlatform) {
+angular.module('app', ['ionic', 'ion-place-tools', 'app.routes', 'ngCordova'])
+.constant('FirebaseUrl', 'https://ionicle.firebaseio.com/')
+
+.run(function($ionicPlatform, config) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,3 +23,8 @@ angular.module('app', ['ionic', 'app.routes', 'app.directives'])
     }
   });
 })
+.config(['$ionicConfigProvider', function($ionicConfigProvider) {
+
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
+
+}]);

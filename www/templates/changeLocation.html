@@ -1,0 +1,19 @@
+<ion-nav-view>
+  <ion-content  class = "has-not-header">
+    <div class = "enter-location">Enter your location</div>
+    <ion-google-place
+       ng-model="location"
+       current-location="true"
+       title = "Submit"
+       submit = "addLocation"></ion-google-place>
+     <H4>Your locations</H4>
+     <ion-list>
+       <ion-item ng-repeat = "item in userLocations" class = "user-location-item" ng-class = "isSelected(item)" ng-click = "select(item)">
+
+         <icon class = "icon ion-checkmark-circled item-selection"></icon>
+         {{item.city+", "+item.state+", "+item.country}}
+         <button class = "button button-clear" ng-click = "remove(item)"><div class = "minus-icon"></div></button>
+       </ion-item>
+     </ion-list>
+  </ion-content>
+</ion-nav-view>

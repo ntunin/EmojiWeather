@@ -15,7 +15,7 @@ var paths = {
   js: ['./www/js/**/*.js']
 };
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'js']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -34,9 +34,9 @@ gulp.task('js', function () {
  gulp.src('www/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
-    .pipe(uglify().on('error', function(e){
-            console.log(e);
-         }))
+    // .pipe(uglify().on('error', function(e){
+    //         console.log(e);
+    //      }))
     .pipe(concat('www/app.min.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('.'))
@@ -66,6 +66,3 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
-
-
-

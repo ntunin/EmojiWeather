@@ -1,0 +1,34 @@
+<ion-nav-bar class = "user-navigation">
+  <ion-nav-back-button class="button-clear user-back-button">
+    <i class="ion-arrow-left ion-ios-arrow-left"></i> Back
+  </ion-nav-back-button>
+</ion-nav-bar>
+<ion-view class = "get-started">
+    <ion-content padding="true"  class = "has-header" scroll = false>
+      <ion-list>
+        <ion-item class = "user-item">
+          <input type = "text" placeholder="Username" ng-model = "userData.name"></input>
+        </ion-item>
+          <ion-item class = "user-item">
+            <input type = "email" placeholder="Email" ng-model = "userData.email"></input>
+          </ion-item>
+        <ion-item class = "user-item">
+          <input type="password" placeholder="Password" ng-model = "userData.password"></input>
+        </ion-item>
+      <ion-item class = "user-item">
+        <input type="password" placeholder="Confirm Password" ng-model = "userData.confirmPassword"></input>
+      </ion-item>
+      <ion-item class = "user-item">
+        <ion-google-place
+           ng-model="location"
+           current-location="true"
+           title = "Confirm"
+           submit = "setLocation"
+           placeholder = "Location">
+         </ion-google-place>
+      </ion-item>
+      </ion-list>
+
+    <button class = "button button-stable"  animated-click = "signUp()">Sign Up</button>
+	</ion-content>
+</ion-view>

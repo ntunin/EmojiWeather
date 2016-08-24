@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-content padding="true" class = "get-started" scroll = false>
+      <img src = 'img/cnote.png' class = "logo"></img>
+      <H3 class = "app-title">Weather wiggy</H3>
+      <img src = "img/logo.png" class = "app-logo"></img>
+      <button class = "button button-stable" animated-ui-sref = "signIn">Sign In</button>
+      <button class = "button button-stable" animated-ui-sref = "signUp">Sign Up</button>
+      <h6>or</h6>
+      <div class = "socials">
+        <button class = "button social" ng-click = "logInWith('twitter')">
+          <img src = "img/twitter.png"></img>
+        </button>
+        <button class = "button social"  ng-click = "logInWith('google')">
+          <img src = "img/google+.png"></img>
+        </button>
+        <button class = "button social"  ng-click = "logInWith('facebook')">
+          <img src = "img/facebook.png"></img>
+        </button>
+      </div>
+	</ion-content>
+</ion-view>

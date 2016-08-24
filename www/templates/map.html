@@ -1,6 +1,10 @@
-<ion-view title="Map" id="page9">
-    <ion-content padding="true" class="has-header">	
-        <div background></div>
-        <div id="map-canvas" data-tap-disabled="true"></div>
+<ion-view>
+    <ion-content padding="true" class="has-not-header" scroll="false">
+    <ion-google-place
+       ng-model="location"
+       current-location="true"
+       title = "Search"
+       submit = "findLocation"></ion-google-place>
+        <div id="map-canvas" data-tap-disabled="true" class = "map"></div>
 	</ion-content>
 </ion-view>
