@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-content scroll = "true" padding="true" class="has-not-header">
+      <div class = "preloader" ng-if = "!forecast">
+        <div class = "preloader-wrap">
+          <ion-spinner></ion-spinner>
+        </div>
+      </div>
+      <ion-list class = "weather-list">
+          <ion-item ng-repeat = "day in forecast" class = "day-forecast">
+            <div class = "weekly-date-block">
+              <div class = "weekly-day">{{moment(day.date).format("dddd")}}</div>
+              <div class = "weekly-date">{{moment(day.date).format("MMMM.Do.YYYY")}}</div>
+            </div>
+            <div class = "weekly-condition">
+              <sticker info = "day.sticker" ></sticker>
+            </div>
+            <div class= "weekly-temp-block">
+              <div class = "at-day-temperature high">
+                {{
+                    ((day.temp.high > 0)? "+":"")+day.temp.high+ "&deg;"+day.temperatureMetric
+                }}
+              </div>
+              <div class = "at-day-temperature low">
+                {{
+                    ((day.temp.low > 0)? "+":"")+day.temp.low+ "&deg;"+day.temperatureMetric
+                }}
+              </div>
+            </div>
+          </ion-item>
+      </ion-list>
+    </ion-content>
+</ion-view>

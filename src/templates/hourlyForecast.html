@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-content padding="true" scroll = "true" class="has-not-header">
+      <div class = "preloader" ng-if = "!hourlyForecast">
+        <div class = "preloader-wrap">
+          <ion-spinner></ion-spinner>
+        </div>
+      </div>
+      <div ng-repeat = "(day, forecast) in hourlyForecast" class = "hourly-forecast">
+          <div>{{day}}</div>
+          <ion-list>
+            <ion-item ng-repeat = "hour in forecast" class = "at-hour-forecast">
+              <div class = "hourly-condition">
+                <sticker info = "hour.sticker" ></sticker>
+              </div>
+              <span class = "at-hour">{{moment(hour.date).format("hh:mm")}}</span>
+              <span class = "at-hour-temperature">
+                {{((hour.temp > 0)? "+":"")+hour.temp+ "&deg;"+hour.temperatureMetric}}
+              </span>
+            </ion-item>
+          </ion-list>
+      </ion-item>
+    </div>
+  </ion-content>
+</ion-view>

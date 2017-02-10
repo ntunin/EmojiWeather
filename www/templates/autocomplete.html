@@ -1,0 +1,11 @@
+<div class="item ion-place-tools-autocomplete">
+    <input type="text" autocomplete="off" ng-model="searchQuery">
+    <button class = "button button-stable ion-google-place-submit" animated-click = "submit(searchQuery)"></button>
+    <div class="ion-place-tools-autocomplete-dropdown" ng-if="dropDownActive">
+          <ion-list>
+                <ion-item ng-repeat="location in locations" class = "autocomlete-item" ng-click="selectLocation(location)">
+                      {{location.description}}
+                </ion-item>
+          </ion-list>
+    </div>
+</div>

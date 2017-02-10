@@ -1,0 +1,20 @@
+
+<ion-nav-view>
+    <ion-list class = "settings has-not-header">
+      <ion-item class = "temperature-selecton">
+        <button ng-class = "(temp == 'C')? 'active': 'disactive'" ng-click=changeTemp('C') class = "button button-clear double-radio">
+          <icon class = "radio-active ion-ios-circle-filled"></icon>
+          <icon class = "radio-disactive ion-ios-circle-outline"></icon>
+          &deg;C
+        </button>
+        <button ng-class = "(temp == 'F')? 'active': 'disactive'" ng-click=changeTemp('F') class = "button button-clear double-radio">
+          <icon class = "radio-active ion-ios-circle-filled"></icon>
+          <icon class = "radio-disactive ion-ios-circle-outline"></icon>
+          &deg;F
+        </button>
+      </ion-item>
+      <ion-item><button class = "button button-clear" ui-sref = "app.changeLocation">Change location</button></ion-item>
+      <ion-item><button class = "button button-clear" ng-click="confirm('app.changeBackround')">Change background</button></ion-item>
+      <ion-item><button class = "button button-clear" ng-click="confirm('app.changeStickers')">Change stickers</button></ion-item>
+    <ion-list>
+</ion-nav-view>

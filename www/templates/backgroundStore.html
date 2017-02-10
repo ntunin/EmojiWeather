@@ -1,0 +1,21 @@
+<ion-nav-view title="Background selection">
+    <ion-content padding="true" class="has-not-header">
+      <div class = "title">Shop</div>
+        <ion-list class = "background-list">
+          <div ng-if = "!backgrounds || !backgrounds.length">
+            <div class = "nothing-to-buy">
+              Nothing to buy!<br/>
+            </div>
+          </div>
+          <ion-item ng-repeat = "item in backgrounds" class = "background-item">
+             <div class = "item-image-container">
+        	      <img class = "background-item" ng-src ="{{item.picture}}" ng-click = "select(item)">
+                </img>
+            </div>
+              <div class = "sticker-name">{{item.name}}</div>
+              <div class = "sticker-name">{{'$'+item.cost}}</div>
+          </ion-item>
+        </ion-list>
+        <div class = "finish"></div>
+    </ion-content>
+</ion-nav-view>

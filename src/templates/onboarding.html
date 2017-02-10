@@ -1,0 +1,15 @@
+<ion-nav-view>
+  <ion-nav-view class="onboarding">
+
+      <ion-content padding="true">
+        <button class="button skip-button" ui-sref = "getStarted">Skip</button>
+        <ion-slide-box on-slide-changed="slideHasChanged($index)"  class = "onboarding-slider">
+          <ion-slide ng-repeat="slide in slides">
+            <div class="onboarding-text">{{slide.text}}</div>
+            <div class = "onboarding-slide"  style="background-image: url({{slide.image}})">
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+    	</ion-content>
+  </ion-nav-view>
+</ion-nav-view>

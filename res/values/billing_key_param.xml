@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources tools:ignore="MissingTranslation" xmlns:tools="http://schemas.android.com/tools">
+    <string name="billing_key_param">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnwaJ5kBtE7RfYrk92M2X33xwjo+R0odbi9cjEwY1z3S/fcV78ss8vE17mjzidRfKHnrXkbKBLmYrsii3/oxptLrTObJiY3NZDohcEpxTWzfaUmjvTkLyo4emfIydnfEGsfaWpKOzh1C0INE6uFRwxvqKnvtQgQXMvplUpmy6mIlCSBfS2Q+mex2I8waQakU6V22WeXejhQwOXJUpZ3+NWASNP17DRWtOGp0ISDjSMIv6VIre+f603PCfyDrukXOo6VqIWHCY1/Lhk0YAUr9wqr5NQtGYntwdf/zqB9xoEb8faOKfhPbMzmi6cj7SNkpMVbrIxZXkw+QBDOwv5GL/kQIDAQAB</string>
+</resources>

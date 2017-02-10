@@ -1,0 +1,16 @@
+<ion-nav-view title="Background selection">
+  <div background></div>
+  <ion-content  class = "has-not-header">
+    <div class = "title your-backrounds">Your stickers</div>
+      <ion-list class = "stickers-list collection">
+          <ion-item ng-repeat = "item in stickers" class = "stickers-item">
+               <div class = "item-image-container">
+          	      <img class = "stickers-pack-image" ng-src ="{{item.picture}}" ng-click = "select(item)" ng-class = "isSelected(item)">
+                  </img>
+                  <icon class = "icon ion-checkmark-circled item-selection"></icon>
+                </div>
+                <div class = "sticker-name">{{item.name}}</div>
+          </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-nav-view>

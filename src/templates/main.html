@@ -1,0 +1,50 @@
+<ion-view>
+    <ion-content padding="true" class="main-page has-not-header" overflow-scroll = "false">
+      <div class = "preloader" ng-if = "!weather">
+        <div class = "preloader-wrap">
+          <ion-spinner></ion-spinner>
+        </div>
+      </div>
+      <div ng-if = "weather">
+        <div class = "current-state">
+          <sticker info = "weather[0].sticker" ></sticker>
+        </div>
+        <div class = "current-condition-text">
+          {{weather[0].condition}}</div>
+        <div class = "current-temperature">
+          {{((weather[0].temp > 0)? "+":"")+weather[0].temp + "&deg;"+weather[0].temperatureMetric}}
+        </div>
+        <ion-list>
+        <ion-item class = "current-weather-info-item">
+          <div class = "current-weather-info-name">
+            Feels like
+          </div>
+          <div  class = "current-weather-info-description">
+            {{((weather[0].feelsLike > 0)? "+":"")+weather[0].feelsLike + "&deg;"+weather[0].temperatureMetric}}
+          </div>
+        </ion-item>
+        <ion-item class = "current-weather-info-item">
+          <div class = "current-weather-info-name">
+            Humidity
+          </div>
+          <div  class = "current-weather-info-description">
+            {{weather[0].humidity + "%"}}
+          </div>
+        </ion-item>
+        <ion-item class = "current-weather-info-item">
+          <div class = "current-weather-info-name">
+            Wind
+          </div>
+          <div class = "current-weather-info-description">
+            <div>
+              {{weather[0].wind.speed + " m/s"}}
+            </div>
+            <div>
+              {{weather[0].wind.direction.name + " (" + weather[0].wind.direction.degrees +"&deg;)"}}
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+      </div>
+    </ion-content>
+</ion-view>
