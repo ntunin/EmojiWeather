@@ -1,60 +1,82 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var bower = require('bower');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sh = require('shelljs');
-var uglify = require('gulp-uglify');
-var ngAnnotate = require('gulp-ng-annotate');
-var sourcemaps = require('gulp-sourcemaps');
+/* jshint: esversion: 6 */
 
-var paths = {
-  sass: ['./scss/**/*.scss'],
-  js: ['./www/js/**/*.js']
-};
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const bower = require('bower');
+const concat = require('gulp-concat');
+const sass = require('gulp-sass');
+const cleanCss = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const sh = require('shelljs');
+const sourcemaps = require('gulp-sourcemaps')
+const uglify = require('gulp-uglify')
+const ngAnnotate = require('gulp-ng-annotate')
+const compileHtmlTags = require('gulp-compile-html-tags');
+const del = require('del');
+const autoprefixer = require('gulp-autoprefixer');
+const changed = require('gulp-changed');
+const plumber = require('gulp-plumber');
 
-gulp.task('default', ['watch', 'js']);
+gulp.task('default', ['watch']);
 
-gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
-    .pipe(sass())
-    .on('error', sass.logError)
-    .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
+gulp.task('build', ['sass', 'css', 'html', 'js']);
+
+gulp.task('sass', () => {
+  const src = 'src/scss/**/*.scss';
+  return gulp.src(src)
+    .pipe(plumber())
+    .pipe(sass()).on('error', sass.logError)
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('www/css'))
+    .pipe(cleanCss({
       keepSpecialComments: 0
     }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./www/css/'))
-    .on('end', done);
+    .pipe(rename({
+      extname: '.min.css'
+    }))
+    .pipe(gulp.dest('www/css'));
 });
 
-gulp.task('js', function () {
- gulp.src('www/js/**/*.js')
+gulp.task('css', () => {
+  const src = 'src/css/**/*.css';
+  const dest = 'www/css';
+  return gulp.src(src)
+    .pipe(plumber())
+    .pipe(changed(dest))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(dest));
+});
+
+gulp.task('html', () => {
+  const src = 'src/templates/**/*.html';
+  const dest = 'www/templates';
+  return gulp.src(src)
+    .pipe(plumber())
+    .pipe(changed(dest))
+    .pipe(compileHtmlTags('style', (tag, data) => {
+      return data.pipe(sass()).on('error', sass.logError)
+    }))
+    .pipe(gulp.dest(dest));
+});
+
+gulp.task('js', () => {
+  return gulp.src('src/js/**/*.js')
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
-    // .pipe(uglify().on('error', function(e){
-    //         console.log(e);
-    //      }))
-    .pipe(concat('www/app.min.js'))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('.'))
-})
-
-gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
-  gulp.watch(paths.js, ['js'])
+    .pipe(concat('app.min.js'))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('www/js'))
 });
 
-gulp.task('install', ['git-check'], function() {
+gulp.task('install', ['git-check'], () => {
   return bower.commands.install()
-    .on('log', function(data) {
+    .on('log', (data) => {
       gutil.log('bower', gutil.colors.cyan(data.id), data.message);
     });
 });
 
-gulp.task('git-check', function(done) {
+gulp.task('git-check', done => {
   if (!sh.which('git')) {
     console.log(
       '  ' + gutil.colors.red('Git is not installed.'),
@@ -65,4 +87,44 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('clean:www', () => {
+  return del([
+    'www/css/**/*',
+    'www/templates/**/*',
+    'www/js/**/*'
+  ])
+});
+
+gulp.task('clean', ['clean:www']);
+
+gulp.task('watch', [
+  'watch:sass',
+  'watch:css',
+  'watch:html',
+  'watch:js'
+]);
+
+gulp.task('watch:sass', ['sass'], () => {
+  return gulp.watch('src/scss/**/*.scss', ['sass']);
+});
+
+gulp.task('watch:css', ['css'], () => {
+  return gulp.watch('src/css/**/*.css', ['css']);
+});
+
+gulp.task('watch:html', ['html'], () => {
+  return gulp.watch('src/templates/**/*.html', ['html']);
+});
+
+gulp.task('watch:js', ['js'], () => {
+  return gulp.watch('src/js/**/*.js', ['js']);
+});
+
+gulp.task('test', done => {
+  karma.start({
+      configFile: __dirname + '/tests/my.conf.js',
+      singleRun: true
+  }, done);
 });
